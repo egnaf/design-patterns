@@ -5,7 +5,8 @@ public class Car {
     private int year;
     private int speed;
 
-    private Car() {}
+    private Car() {
+    }
 
     public Car(Builder builder) {
         this.model = builder.model;
@@ -18,8 +19,16 @@ public class Car {
         private int year;
         private int speed;
 
+        public Builder() {
+        }
+
         public Builder(String model) {
             this.model = model;
+        }
+
+        public Builder setModel(String model) {
+            this.model = model;
+            return this;
         }
 
         public Builder setYear(int year) {
