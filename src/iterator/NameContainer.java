@@ -1,7 +1,18 @@
 package iterator;
 
-public class NameRepository implements Container {
-    public String names[] = {"Robert" , "John" ,"Julie" , "Lora"};
+interface Iterator {
+    boolean hasNext();
+
+    Object next();
+}
+
+interface Container {
+    Iterator getIterator();
+}
+
+public class NameContainer implements Container {
+
+    public String[] names = {"Robert", "John", "Julie", "Lora"};
 
     @Override
     public Iterator getIterator() {
@@ -15,20 +26,16 @@ public class NameRepository implements Container {
         @Override
         public boolean hasNext() {
 
-            if(index < names.length){
-                return true;
-            }
-            return false;
+            return index < names.length;
         }
 
         @Override
         public Object next() {
 
-            if(this.hasNext()){
+            if (this.hasNext()) {
                 return names[index++];
             }
             return null;
         }
     }
 }
-
