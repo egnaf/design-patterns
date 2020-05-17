@@ -2,7 +2,7 @@ package singleton;
 
 public class Singleton5 {
 
-    private static Singleton5 instance = new Singleton5();
+    private final static Singleton5 instance = new Singleton5();
 
     private Singleton5() {
     }
